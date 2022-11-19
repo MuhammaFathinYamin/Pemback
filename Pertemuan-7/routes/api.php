@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\StudentsController;
+use App\Http\Controllers\AuthController;
 
 
 /*
@@ -41,3 +42,7 @@ Route::post('/students', [StudentsController::class, 'store']);
 Route::get('/students/{id}', [StudentsController::class, 'show']);
 Route::put('/students/{id}', [StudentsController::class, 'update']);
 Route::delete('/students/{id}', [StudentsController::class, 'destroy']);
+
+// Route Register dan Login 
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
