@@ -44,7 +44,7 @@ class AuthController extends Controller
         User::where('email', $input['email'])->first();
 
         if ($input['email'] == $user->email && Hash::check($input['password'], $user->password)){
-            $token = $user->ceateToken
+            $token = $user->ceateToken('auth_token');
         }
     }
 }
