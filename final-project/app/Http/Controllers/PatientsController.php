@@ -161,23 +161,50 @@ class PatientsController extends Controller
     }
 
     public function search($name){
-        // test-end-point
-        echo "ini search ". $name ;
+        #----------------------------------------------#
+        // test-end-point                              #
+        // echo "ini search $nama";                    #
+        #----------------------------------------------#
+
+        $findNamePatient = Patients::where('name', $name)->get();
+
+        if ($findNamePatient){
+            $data = [
+                'message' => 'Get searched resource',
+                'data' => $findNamePatient
+            ];
+            return response()->json($data, 200);
+        } else {
+            return ['message ' => 'coba tidak bisa'];
+        }
+
+
+
     }
 
-    public function positive(){
-        // test-end-point
-        echo "ini positive";
+    public function positive($status){
+        // // test-end-point
+        // echo "ini positive";
+
+        $findPositive = Patients::where('status', $status)->get();
+        return response()->json($findPositive, 200);
+        
     }
     
-    public function recovered(){
+    public function recovered($status){
         // test-end-point
-        echo "ini recovered";
+        // echo "ini recovered";
+
+        $findPositive = Patients::where('status', $status)->get();
+        return response()->json($findPositive, 200);
     }
 
-    public function dead(){
+    public function dead($status){
         // test-end-point
-        echo "ini dead";
+        // echo "ini dead";
+
+        $findPositive = Patients::where('status', $status)->get();
+        return response()->json($findPositive, 200);
     }
 
 }

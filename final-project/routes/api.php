@@ -23,7 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/patients', [PatientsController::class, 'index']);
 
 // Route add-resource-patients
-Route::post('/patients', [PatientsController::class, 'store']);
+Route::post('/patients', [PatientsController::class, 'store']); 
 
 // // Route get-detail-resource-patients
 Route::get('/patients/{id}', [PatientsController::class, 'show']);
@@ -38,13 +38,13 @@ Route::delete('/patients/{id}', [PatientsController::class, 'destroy']);
 Route::get('/patients/search/{name}', [PatientsController::class, 'search']);
 
 // // Route get-positive-patients
-Route::get('/patients/search/positive', [PatientsController::class, 'positive'] );
+Route::get('/patients/search/status/{status}', [PatientsController::class, 'positive'] );
 
 // // Route recovered-patients
-Route::get('/patients/search/recovered', [PatientsController::class, 'recovered']);
+Route::get('/patients/search/status/{status}', [PatientsController::class, 'recovered']);
 
 // // Route dead-patients
-Route::get('/patients/search/dead', [PatientsController::class,  'dead']);
+Route::get('/patients/search/status/{status}', [PatientsController::class,  'dead']);
 
 
 
